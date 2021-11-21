@@ -14,6 +14,8 @@ Please note :
 
 * For my test I hae deployed this in GKE as I go not have self managed cluster ready with me.
 
+![This is an image](/assets/12.png)
+
 kubectl create namespace nginx
 
 ![This is an image](/assets/7.png)
