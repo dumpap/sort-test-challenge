@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      hostNetwork: false
+      containers:
+      - name: nginx
+        image: nginx
+        env:
+          - name: ENV
+            value: "Prod"
+        ports:
+          - containerPort: 80
+        imagePullPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx
+  name: nginx-service
+  namespace: nginx
+spec:
+  type: ClusterIP  # using ClusterIP as type here
+  ports:
+    - port: 80
+  selector:
+    app: nginx
