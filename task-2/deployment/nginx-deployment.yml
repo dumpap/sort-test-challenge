@@ -31,7 +31,7 @@ kind: Service
 metadata:
   labels:
     app: nginx
-  name: nginx-service
+  name: nginx
   namespace: nginx
 spec:
   type: ClusterIP  # using ClusterIP as type here
